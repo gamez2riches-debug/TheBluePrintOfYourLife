@@ -5,3 +5,74 @@ body {
 .family-bg { background-color: #fef6e4; }
 .luxury-bg { background-color: #1a1a1a; color: #fff; }
 button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+/* ---------- Premium Fade-In Animations ---------- */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.fade-in-delay {
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Floating Card Effect ---------- */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 14px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- Legacy Gradient Background ---------- */
+body {
+  background: linear-gradient(to bottom right, #0f172a, #1e293b);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---------- Luxury Headings ---------- */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -.5px;
+}
+
+/* ---------- Gold Accent Text ---------- */
+.gold {
+  color: #f5c542;
+}
+
+/* ---------- Buttons ---------- */
+.button {
+  background: #f5c542;
+  color: #0f172a;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button:hover {
+  background: #ffe28d;
+  transform: translateY(-2px);
+}
