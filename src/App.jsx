@@ -1,34 +1,30 @@
-function App() {
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import Home from "./components/Home.jsx";
+import Quiz from "./components/Quiz.jsx";
+import Results from "./components/Results.jsx";
+
+export default function App() {
+  const [theme, setTheme] = useState("family");
+  const [quizData, setQuizData] = useState({ answers: [], leadInfo: null, score: 0 });
+
+  const toggleTheme = () => setTheme(theme === "family" ? "luxury" : "family");
+
   return (
-    <div className="container">
-
-      {/* HERO SECTION */}
-      <header className="hero">
-        <h1 className="title">Build Your Financial Legacy</h1>
-        <p className="subtitle">
-          Your future wealth starts with your decisions today.  
-          Discover your Financial IQ and unlock your personalized blueprint.
-        </p>
-        <a href="/quiz" className="cta-btn">Take the Financial IQ Quiz</a>
-      </header>
-
-      {/* BENEFITS SECTION */}
-      <section className="benefits">
-        <h2>Why Start Your Legacy?</h2>
-        <div className="benefit-grid">
-          <div className="benefit-card">✔ Understand Your Money Personality</div>
-          <div className="benefit-card">✔ Learn How to Build Long-Term Wealth</div>
-          <div className="benefit-card">✔ Get a Personalized Legacy Strategy</div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="footer">
-        © {new Date().getFullYear()} Financial Legacy Blueprint  
-      </footer>
+    <div className={theme === "family" ? "family-bg" : "luxury-bg"}>
+      <Router>
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/quiz" element={<Quiz setQuizData={setQuizData} />} />
+            <Route path="/results" element={<Results leadInfo={quizData.leadInfo} answers={quizData.answers} />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
     </div>
   );
 }
-
-export default App;
-
