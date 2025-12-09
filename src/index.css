@@ -1,0 +1,7 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.family-bg { background-color: #fef6e4; }
+.luxury-bg { background-color: #1a1a1a; color: #fff; }
+button { padding: 10px 20px; margin: 5px; cursor: pointer; }
